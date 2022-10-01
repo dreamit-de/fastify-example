@@ -3,7 +3,10 @@ import {
     GraphQLError,
     GraphQLSchema
 } from 'graphql'
-import {GraphQLRequestInfo} from '@dreamit/graphql-server'
+import {
+    AggregateError,
+    GraphQLRequestInfo
+} from  '@dreamit/graphql-server'
 
 // Contains example schemas and data that can be used across tests
 
@@ -35,6 +38,7 @@ export const usersRequest: GraphQLRequestInfo = {
     query: usersQuery,
     operationName: 'users',
 }
+
 export const loginRequest: GraphQLRequestInfo = {
     query: loginMutation,
     operationName: 'login'
@@ -80,22 +84,41 @@ export const userSchema = buildSchema(`
 
 export const userSchemaResolvers= {
     returnError(): User {
-        throw new GraphQLError('Something went wrong!')
+        throw new GraphQLError('Something went wrong!', {})
     },
     users(): User[] {
         return [userOne, userTwo]
     },
     user(input: { id: string }): User {
         switch (input.id) {
-        case '1':
+        case '1': {
             return userOne
-        case '2':
+        }
+        case '2': {
             return userTwo
-        default:
-            throw new GraphQLError(`User for userid=${input.id} was not found`)
+        }
+        default: {
+            throw new GraphQLError(`User for userid=${input.id} was not found`, {})
+        }
         }
     },
     logout(): LogoutResult {
         return {result: 'Goodbye!'}
     }
 }
+
+export const multipleErrorResponse = {
+    errors: [new GraphQLError('The first error!, The second error!',
+        {
+            originalError:
+                {
+                    name: 'AggregateError',
+                    message:'The first error!, The second error!',
+                    errors: [
+                        new GraphQLError('The first error!', {}),
+                        new GraphQLError('The second error!', {})
+                    ]
+                } as AggregateError
+        })]
+}
+

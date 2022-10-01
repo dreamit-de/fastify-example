@@ -20,18 +20,18 @@
   "homepage": "https://github.com/sgohlke/fastify-example#readme",
   "devDependencies": {
     "@types/content-type": "^1.1.5",
-    "@types/node": "17.0.19",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "eslint": "^8.9.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-modules-newline": "^0.0.6",
-    "eslint-plugin-unicorn": "^41.0.0",
-    "typescript": "4.5.5"
+    "@types/node": "18.7.23",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/parser": "5.38.1",
+    "eslint": "8.24.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-modules-newline": "0.0.6",
+    "eslint-plugin-unicorn": "44.0.0",
+    "typescript": "4.8.4"
   },
   "dependencies": {
-    "@dreamit/graphql-server": "file:dreamit-graphql-server-2.1.0.tgz",
-    "fastify": "^3.27.2",
-    "graphql": "^16.3.0"
+    "@dreamit/graphql-server": "file:dreamit-graphql-server-3.0.0.tgz",
+    "fastify": "^4.7.0",
+    "graphql": "^16.6.0"
   }
 }

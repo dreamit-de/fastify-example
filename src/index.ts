@@ -1,13 +1,12 @@
-import { JsonLogger } from '@dreamit/graphql-server'
+import { GraphQLServer, JsonLogger } from '@dreamit/graphql-server'
 import fastify from 'fastify'
 import { 
     userSchema, 
     userSchemaResolvers 
 } from './ExampleSchemas'
-import { FastifyGraphQLServer } from './FastifyGraphQLServer'
 
 const server = fastify()
-const graphqlServer = new FastifyGraphQLServer(
+const graphqlServer = new GraphQLServer(
     {
         schema: userSchema,
         rootValue: userSchemaResolvers,
@@ -16,10 +15,26 @@ const graphqlServer = new FastifyGraphQLServer(
 )
 
 server.all('/graphql', async(request, reply) => {
-    return graphqlServer.handleFastifyRequest(request, reply)
+    // return graphqlServer.handleFastifyRequest(request, reply)
+    return graphqlServer.handleRequest(request, { 
+        statusCode: reply.statusCode,
+        setHeader: function(name, value) {
+            reply.header(name, value)
+            return this 
+        },
+        removeHeader: function(name) {
+            reply.removeHeader(name)
+        },
+        end: function(chunk) {
+            reply.send(chunk)
+            return this
+        },
+    })
+
+
 })
   
-server.listen(7070, (error, address) => {
+server.listen({port: 7070}, (error, address) => {
     if (error) {
         console.error(error)
         throw error
