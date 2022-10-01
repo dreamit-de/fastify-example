@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/sgohlke/fastify-example#readme",
   "devDependencies": {
-    "@types/content-type": "^1.1.5",
     "@types/node": "18.7.23",
     "@typescript-eslint/eslint-plugin": "5.38.1",
     "@typescript-eslint/parser": "5.38.1",
