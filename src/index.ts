@@ -18,7 +18,7 @@ const graphqlServer = new GraphQLServer(
 )
 
 server.all('/graphql', async(request, reply) => {
-    return graphqlServer.handleRequestAndSendResponse(request, { 
+    return graphqlServer.handleRequest(request, { 
         statusCode: reply.statusCode,
         setHeader: function(name, value) {
             reply.header(name, value)
