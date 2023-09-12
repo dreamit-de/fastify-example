@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@dreamit/graphql-server": "4.2.6",
-    "fastify": "4.22.2",
+    "fastify": "4.23.0",
     "graphql": "16.8.0"
   }
 }
