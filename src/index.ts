@@ -6,7 +6,7 @@ import fastify from 'fastify'
 import { 
     userSchema, 
     userSchemaResolvers 
-} from './ExampleSchemas'
+} from '@dreamit/graphql-testing'
 
 const server = fastify()
 const graphqlServer = new GraphQLServer(
