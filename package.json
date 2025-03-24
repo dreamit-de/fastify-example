@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/sgohlke/fastify-example#readme",
   "devDependencies": {
-    "@types/node": "22.13.10",
-    "oxlint": "0.16.0",
+    "@types/node": "22.13.12",
+    "oxlint": "0.16.2",
     "typescript": "5.8.2"
   },
   "dependencies": {
