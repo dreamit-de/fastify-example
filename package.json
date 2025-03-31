@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/sgohlke/fastify-example#readme",
   "devDependencies": {
-    "@types/node": "22.13.12",
-    "oxlint": "0.16.2",
+    "@types/node": "22.13.14",
+    "oxlint": "0.16.3",
     "typescript": "5.8.2"
   },
   "dependencies": {
     "@dreamit/graphql-server": "4.13.1",
     "@dreamit/graphql-testing": "^0.1.2",
-    "fastify": "5.2.1",
+    "fastify": "5.2.2",
     "graphql": "16.10.0"
   }
 }
