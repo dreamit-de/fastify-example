@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@dreamit/graphql-server": "4.13.3",
-    "@dreamit/graphql-testing": "^0.1.2",
+    "@dreamit/graphql-testing": "^0.2.0",
     "fastify": "5.3.2",
     "graphql": "16.10.0"
   }
