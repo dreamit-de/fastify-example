@@ -18,20 +18,7 @@ const graphqlServer = new GraphQLServer(
 )
 
 server.all('/graphql', async(request, reply) => {
-    return graphqlServer.handleRequest(request, { 
-        statusCode: reply.statusCode,
-        setHeader: function(name, value) {
-            reply.header(name, value)
-            return this 
-        },
-        removeHeader: function(name) {
-            reply.removeHeader(name)
-        },
-        end: function(chunk) {
-            reply.send(chunk)
-            return this
-        },
-    })
+    return graphqlServer.handleRequest(request,reply)
 })
   
 server.listen({port: 7070}, (error, address) => {
